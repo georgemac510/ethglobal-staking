@@ -1,51 +1,33 @@
-require("@nomicfoundation/hardhat-toolbox");
-require("@nomiclabs/hardhat-etherscan");
+require('@nomicfoundation/hardhat-toolbox');
+require('dotenv').config()
+require("@nomicfoundation/hardhat-verify");
 
-const fs = require('fs');
-const privateKey = fs.readFileSync(".secret").toString().trim() || "01234567890123456789"
+// NEVER record important private keys in your code - this is for demo purposes
+const GOERLI_TESTNET_PRIVATE_KEY = process.env.GOERLI_TESTNET_PRIVATE_KEY;
+const ARBITRUM_MAINNET_TEMPORARY_PRIVATE_KEY = '';
 
-const infuraId = fs.readFileSync(".infuraid").toString().trim() || "";
-
+/** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  defaultNetwork: "hardhat",
+  solidity: '0.8.9',
   networks: {
     hardhat: {
-      chainId: 1337
+      chainId: 1337,
     },
-    mainnet: {
-      url: `https://mainnet.infura.io/v3/${infuraId}`,
-      accounts: [privateKey]
+    arbitrumGoerli: {
+      url: 'https://goerli-rollup.arbitrum.io/rpc',
+      chainId: 421613,
+      accounts: [GOERLI_TESTNET_PRIVATE_KEY]
     },
-    mumbai: {
-      url: `https://polygon-mumbai.infura.io/v3/${infuraId}`,
-      accounts: [privateKey]
+    arbitrumOne: {
+      url: 'https://arb1.arbitrum.io/rpc',
+      //accounts: [ARBITRUM_MAINNET_TEMPORARY_PRIVATE_KEY]
     },
-    matic: {
-      url: `https://polygon-mainnet.infura.io/v3/${infuraId}`,
-      accounts: [privateKey]
-    },
-    rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${infuraId}`,
-      accounts: [privateKey]
-    },
-    arbitrum: {
-      url: `https://arbitrum-mainnet.infura.io/v3/${infuraId}`,
-      accounts: [privateKey]
-    }
-  },
-  solidity: {
-    version: "0.8.7",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200
-      }
-    }
   },
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey:'2D134SPWU6WE6M7VXZUX4PWSSSUI9EKFUE'
-  },
-}
+    apiKey: "RT1CVQ2YY6N4N49XDER2Y63H924PF14IKM"
+  }
+
+};
 

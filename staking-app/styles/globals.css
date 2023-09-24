@@ -1,40 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  color: #84309c;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
-    background-color: #fafafa;
-    font-size: 20px;
+  color: #e7e8e8;
+  background: #070707;
 }
-
-/* The custom styles for the wallet connect button in the header */
-.sc-lbxAil.fsxTGD {
-    background: transparent;
-}
-
-.sc-gSAPjG.gDkHDj {
-    margin-left: 0;
-}
-
-.sc-efBctP.ldkxSl {
-    margin-left: 3px !important;
-}
-
-/* Custom Range Slider */
-.slider-wrapper input[type="range"] {
-    -webkit-appearance:none !important;
-}
-
-.slider-wrapper input[type="range"]::-webkit-slider-thumb {
--webkit-appearance: none !important;
-width: 20px;
-height: 20px;
-background: #fff;
-border: 2px solid #223df8;
-border-radius: 50%;
-cursor: pointer;
-}
-
-/* .slider-wrapper input[type="range"]::-webkit-slider-thumb:hover {
-background: #223df8;
-} */

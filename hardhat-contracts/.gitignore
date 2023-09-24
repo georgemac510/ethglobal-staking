@@ -4,6 +4,9 @@ coverage
 coverage.json
 typechain
 typechain-types
+.infuraid
+.secret
+package-lock.json
 
 # Hardhat files
 cache
